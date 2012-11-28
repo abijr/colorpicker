@@ -1,7 +1,7 @@
 "Script: VIM Color Picker
 "Version: 0.1
 "Copyright: Copyright (C) 2012  Abimael Martinez,
-            Copyright (C) 2010  Fabien Loison
+"           Copyright (C) 2010  Fabien Loison
 "Licence: GPLv3+ (see the "COPYING" file for more information)
 "
 "DEPENDENCIES:
