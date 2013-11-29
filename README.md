@@ -8,6 +8,7 @@ installation
 ------------
 
 - Extract the and put the files in your Vim directory (default is usually ~/vim/ under linux)
+- It also works with Bundle (Bundle 'abijr/colorpicker')
 
 usage
 ------
