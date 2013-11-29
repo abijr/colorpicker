@@ -26,7 +26,7 @@ command ColorPickerSelect call ColorPicker("select")
 
 function! ColorPicker(has_selection)
 python << EOF
-import pygtk, gtk, vim, re
+import pygtk, gtk, vim, re, os
 pygtk.require('2.0')
 
 color_dlg = gtk.ColorSelectionDialog("Vim Color Picker")
@@ -38,6 +38,7 @@ w = vim.current.window
 has_selection = vim.eval('a:has_selection')
 endline = False
 nextline= ""
+orig_selection = ""
 
 
 if has_selection == "select":
@@ -78,7 +79,8 @@ else:
 row = row - 1
 current_row = b[row]
 
-if color_dlg.run() == gtk.RESPONSE_OK:
+response = color_dlg.run()
+if  response == gtk.RESPONSE_OK:
     color = color_sel.get_current_color()
 
     #Convert to 8bit channels
@@ -86,7 +88,7 @@ if color_dlg.run() == gtk.RESPONSE_OK:
     green   = color.green * 255 / 65535
     blue    = color.blue  * 255 / 65535
 
-    #Convert to hexa strings
+    #Convert to hex strings
     red = str(hex(red))[2:]
     green = str(hex(green))[2:]
     blue = str(hex(blue))[2:]
